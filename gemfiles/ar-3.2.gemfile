@@ -1,0 +1,6 @@
+source "http://rubygems.org"
+
+gem "rake"
+gem "activerecord", "~> 3.2.0"
+
+gemspec :path=>"../"

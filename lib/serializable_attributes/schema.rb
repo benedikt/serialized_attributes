@@ -73,12 +73,12 @@ module SerializableAttributes
       meta_model.send(:attr_accessor, "#{data_field}_schema")
       @model.send("#{data_field}_schema=", self)
 
-      @model.class_eval do
+      @model.class_eval <<-RUBY
         def reload(options = nil)
           reset_serialized_data
           super
         end
-      end
+      RUBY
 
       meta_model.send(:define_method, :attribute_names) do
         column_names + send("#{data_field}_schema").all_column_names

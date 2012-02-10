@@ -60,7 +60,7 @@ class SerializedRecord < ActiveRecord::Base
     r
   end
 
-  attr_accessor :raw_data
+  attr_accessor :id, :raw_data
 
   serialize_attributes :data do
     string  :title, :body
@@ -86,7 +86,7 @@ end
 class SerializedRecordWithDefaults < ActiveRecord::Base
   extend SerializableMethods
 
-  attr_accessor :raw_data
+  attr_accessor :id, :raw_data
 
   serialize_attributes :data do
     string  :title, :body, :default => 'blank'
